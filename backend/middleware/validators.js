@@ -1,0 +1,44 @@
+const { body } = require("express-validator");
+
+const signupValidator = [
+  body("name")
+    .trim()
+    .notEmpty()
+    .withMessage("Name is required"),
+
+  body("email")
+    .isEmail()
+    .withMessage("Valid email is required")
+    .normalizeEmail(),
+
+  body("password")
+    .isLength({ min: 6 })
+    .withMessage(
+      "Password must be at least 6 characters"
+    ),
+];
+
+const loginValidator = [
+  body("email")
+    .isEmail()
+    .withMessage("Valid email is required")
+    .normalizeEmail(),
+
+  body("password")
+    .notEmpty()
+    .withMessage("Password is required"),
+];
+
+const fundsValidator = [
+  body("amount")
+    .isFloat({ gt: 0 })
+    .withMessage(
+      "Amount must be greater than 0"
+    ),
+];
+
+module.exports = {
+  signupValidator,
+  loginValidator,
+  fundsValidator,
+};
