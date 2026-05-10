@@ -75,9 +75,8 @@ const allowedOrigins = [
   "http://localhost:3000", // Frontend
   "http://localhost:3001", // Dashboard
 
-  // Production (replace with your actual deployed URLs)
-  "https://your-frontend.vercel.app",
-  "https://your-dashboard.vercel.app",
+  // Production
+  "https://tradex-roan.vercel.app",
 ];
 // ===============================
 // SOCKET IO
